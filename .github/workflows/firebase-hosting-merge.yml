@@ -17,6 +17,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NOMADELIFE_VSI }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NOMADELIFE_DJ }}
           channelId: live
-          projectId: nomadelife-vsi
+          projectId: nomadelife-dj
