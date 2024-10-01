@@ -31,13 +31,15 @@ export const useAuthentication = () => {
             const { user } = await createUserWithEmailAndPassword(
                 auth,
                 data.email,
-                data.password
+                data.password,
+                data.name,
+                data.ConfirmPassword
             )
             await updateProfile(user, {
                 displayName: data.displayName
             })
             setLoading(false)
-
+            
             return user
         }catch(error){
             console.error(error.message)

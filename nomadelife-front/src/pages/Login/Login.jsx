@@ -24,7 +24,7 @@ const Login = () => {
         const res = await login(user)
 
         console.table(res)
-        navigate("/post/create")
+        navigate("/post/home")
     }
 
     useEffect(() =>{
