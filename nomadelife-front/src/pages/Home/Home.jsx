@@ -1,10 +1,9 @@
-import React from 'react'
-import logo from '/logo-quadrada.png'
+import logo from '/LogoQuadrado.png'
 
 const Home = () => {
   return (
     <div>
-        <img src={logo} alt="Logo da desenvolvedora" />
+      <img src={logo} alt="Logo da desenvolvedora" />
     </div>
   )
 }
