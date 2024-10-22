@@ -8,22 +8,19 @@ import Register from './pages/Register/Register';
 
 function App() {
 
-
-  return (
-    <>
-      <BrowserRouter>
-        <NavBar />
-        <div className='container'>
-          <Routes>
-            <Route path='/' element={<Home />}></Route>
-            <Route path='/login' element={<Login />}></Route>
-            <Route path='/Register' element={<Register/>}></Route>
-          </Routes>
-        </div>
-        <Footer />
-      </BrowserRouter>
-    </>
-  )
+    return (
+        <BrowserRouter>
+            <NavBar />
+            <div className='container'>
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/register' element={<Register />} />
+                </Routes>
+            </div>
+            <Footer />
+        </BrowserRouter>
+    );
 }
 
 export default App;
