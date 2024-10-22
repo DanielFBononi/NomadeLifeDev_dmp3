@@ -1,16 +1,27 @@
-import { useState } from 'react'
 import './App.css'
-import { NavBar } from './components/NavBar'
-import {Footer} from  './components/Footer.jsx'
-import {CreatePost} from './pages/CreatePost/CreatePost'
-function App() {
-  const [count, setCount] = useState(0)
+import { BrowserRouter, Routes, Route, Navigate, Form } from 'react-router-dom'
+import NavBar from './components/NavBar'
+import Footer from './components/Footer'
+import CreatePost from './pages/CreatePost/CreatePost'
+import Login from './pages/Login/Login'
+import Home from './pages/Home/Home'
+import { Register } from './pages/Register/Register'
+import { useState } from 'react'
 
+function App() {
   return (
     <>
-      <NavBar/>
-      <CreatePost/>
-      <Footer/>
+      <BrowserRouter>
+        <NavBar />
+        <div className='container'>
+          <Routes>
+            <Route path='/' element={<Home />}></Route>
+            <Route path='/login' element={<Login />}></Route>
+            <Route path='/Register' element={<Register/>}></Route>
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
     </>
   )
 }
