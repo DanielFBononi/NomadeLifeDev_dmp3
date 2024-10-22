@@ -77,9 +77,9 @@ export const useAuthentication = () => {
 
             let systemErrorMessage
 
-            if (error.message.include('Ininvalid-login-credentials')) {
+            if (error.message.includes('Ininvalid-login-credentials')) {
                 systemErrorMessage = "Este usuario nao tem registro em nossos sistemas."
-            }else if (error.message.includ('wrong-password')) {
+            }else if (error.message.includes('wrong-password')) {
                 systemErrorMessage = "Existe algum error em suas credenciais delogin."
             }else(
                 systemErrorMessage = "Ocorreu um erro, tente novamente mais tarde."

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-route-dom'
+import { useNavigate } from 'react-router-dom'
 import { useAuthentication } from '../../hooks/useAuthentication'
-import { styles } from './login.module.css'
+import styles  from './login.module.css'
 
 export const Login = () => {
     const [email, setEmail] = useState('')
