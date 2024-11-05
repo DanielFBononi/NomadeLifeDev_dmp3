@@ -1,7 +1,60 @@
-import {useState} from 'react'
+import styles from './CreatePost.module.css'
+import { useNavigate, useNavigate } from 'react-router-dom'
+import { useAuthValue } from '../../context/AuthContext'
+import { useState } from 'react'
+import { useInsertDocument } from '../../hooks/useInsertDocument'
 
 export const CreatePost = () => {
-  const [post, setPost] = useState("Mensagem do Post");
+  const [title, SetTitle] = useState("")
+  const [image, SetImage] = useState("")
+  const [body, SetBody] = useState("")
+  const [Tags, SetTags] = useState("")
+  const [formError, SetFormError] = useState("")
+  const [user, SetUser] = useState("")
+  const useNavigate = useNavigate("")
+
+  const { insertDocument, response } = useInsertDocument("Post")
+
+  const handlerSubmit = (e) => {
+    e.preventDefault()
+    SetFormError("");
+
+    try {
+      new URL(image)
+    } catch (error) {
+      SetFormError("a Imagem precisa ser uma URL")
+    }
+
+    const tagsArray = tags.split(',').map((tag) => tag.trim().toLowerCase())
+
+    if (!title || !image || !tags || !body) {
+      SetFormError("por favor, preencha todos os campos de formulario do post ")
+    }
+
+    console.log(tagsArray)
+
+    console.log({
+      title,
+      image,
+      body,
+      tags: tagsArray,
+      id: user.id,
+      createBy: user.displayName
+    })
+
+    if(SetFormError) return
+
+    insertDocument({
+      title,
+      image,
+      body,
+      tags: tagsArray,
+      id: user.id,
+      createBy: user.displayName
+    })
+
+    Navigate('/')
+  }
 
   return (
     <>
@@ -9,4 +62,4 @@ export const CreatePost = () => {
     </>
   )
 }
- export default CreatePost;
+export default CreatePost;
