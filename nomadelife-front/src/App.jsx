@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
@@ -7,6 +8,7 @@ import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
 
 function App() {
+const [count, setCount] = useState(0)
 
     return (
         <BrowserRouter>
