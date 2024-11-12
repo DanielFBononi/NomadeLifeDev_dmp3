@@ -104,6 +104,7 @@ export const useAuthentication = () => {
 
     return (
         auth,
+        db,
         createuser,
         error,
         loading,
