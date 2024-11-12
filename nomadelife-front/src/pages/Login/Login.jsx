@@ -1,10 +1,11 @@
-import  styles  from './Login.module.css'
 import React from 'react'
+import styles from './Login.module.css'
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useAuthentication } from '../../hooks/useAuthentication'
+import { useNavigate } from 'react-router-dom'
 
-export const Login = () => {
+
+const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
@@ -12,56 +13,56 @@ export const Login = () => {
     const { login, error: authError, loading } = useAuthentication()
     const navigate = useNavigate()
 
-    const handlerSubmit = async () => {
+    const handlerSubmit = async (e) => {
         e.preventDefault()
         setError('')
-        const user = (
+        const user = {
             email,
             password
-        )
+        }
 
         const res = await login(user)
 
         console.table(res)
         navigate("/post/create")
-
-        useEffect(() => {
-            if (authError) {
-                setError(authError)
-            }
-        }, [authError])
     }
+
+    useEffect(() => {
+        if (authError) {
+            setError(authError)
+        }
+    }, [authError])
+
     return (
-        <div className={styles.login} >
-            <h1>Entrar no Nomade life</h1>
-            <p>Entre no ambiente e compartilhe suas experiencias</p>
+        <div className={styles.login}>
+            <h1>Entrar no Nomade Life</h1>
+            <p>Entre no ambiente e compartilhe suas experiências</p>
             <form onSubmit={handlerSubmit}>
                 <label>
-                    <span>Email</span>
+                    <span>E-mail:</span>
                     <input
                         type='email'
                         name='email'
-                        value={email}
-                        onChange = {(e) => setEmail(e.target.value)}
-                        placeholder='Entre com seu email'
                         required
-                    />
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder='Entre com seu e-mail'
+                    ></input>
                 </label>
                 <label>
+                    <span>Senha:</span>
                     <input
                         type='password'
                         name='password'
-                        value={password}
-                        onchange = {(e) => setPassword(e.target.value)}
-                        placeholder='Entre com sua senha'
                         required
-                    />
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder='Entre com sua senha'
+                    ></input>
                 </label>
-
                 {!loading && <button className='btn'>Login</button>}
                 {loading && <button className='btn' disabled>Aguarde...</button>}
-                {loading && <button className='error'>(error)</button>}
-
+                {error && <p className='error'>{error}</p>}
             </form>
         </div>
     )
