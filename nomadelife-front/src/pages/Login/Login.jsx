@@ -42,7 +42,7 @@ export const Login = () => {
                         type='email'
                         name='email'
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange = {(e) => setEmail(e.target.value)}
                         placeholder='Entre com seu email'
                         required
                     />
@@ -52,7 +52,7 @@ export const Login = () => {
                         type='password'
                         name='password'
                         value={password}
-                        onchange={(p) => setPassword(p.target.value)}
+                        onchange = {(e) => setPassword(e.target.value)}
                         placeholder='Entre com sua senha'
                         required
                     />
