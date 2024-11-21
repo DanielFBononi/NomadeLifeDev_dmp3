@@ -1,4 +1,4 @@
-import styles from '../Home/Home.'
+import styles from '../Home/Home.module.css'
 import logo from '/LogoQuadrado.png'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 import { Link, useNavigate } from 'react-router-dom'
