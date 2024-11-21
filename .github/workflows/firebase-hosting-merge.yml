@@ -5,7 +5,7 @@ name: Deploy to Firebase Hosting on merge
 on:
   push:
     branches:
-      - prod
+      - daniel
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -13,10 +13,10 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
               cd nomadelife-front
-              npm ci && npm run build
+              npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          repoToken: ${{ secrets.TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NOMADELIFE_DJ }}
           channelId: live
           projectId: nomadelife-dj
